@@ -1,0 +1,182 @@
+iata,distance,total_km,count,nombre,continente,pais
+BOG,8193,327717,40,El Dorado International Airport,SA,CO
+MEX,10553,316592,30,Licenciado Benito Juarez International Airport,NA,MX
+EZE,8820,299895,34,Ministro Pistarini International Airport,SA,AR
+MIA,8568,239896,28,Miami International Airport,NA,US
+GRU,7747,209178,27,Guarulhos - Governador AndrÃ© Franco Montoro International Airport,SA,BR
+HAV,8807,202558,23,JosÃ© MartÃ­ International Airport,NA,CU
+JFK,7808,195192,25,John F Kennedy International Airport,NA,US
+LPA,1901,176767,93,Gran Canaria Airport,ES,ES
+SCL,9049,171922,19,Comodoro Arturo Merino BenÃ­tez International Airport,SA,CL
+TFN,1933,158480,82,Tenerife Norte Airport,ES,ES
+FCO,1763,137527,78,Leonardo da VinciâFiumicino Airport,EU,IT
+FRA,1716,137268,80,Frankfurt am Main Airport,EU,DE
+LHR,1270,123170,97,London Heathrow Airport,EU,GB
+MUC,1916,114980,60,Munich Airport,EU,DE
+BCN,634,114108,180,Barcelona International Airport,ES,ES
+MVD,8770,114016,13,Carrasco International /General C L Berisso Airport,SA,UY
+TLV,4366,113512,26,Ben Gurion International Airport,AS,IL
+SDQ,7526,112894,15,Las AmÃ©ricas International Airport,NA,DO
+BRU,1464,106871,73,Brussels Airport,EU,BE
+PTY,8607,103287,12,Tocumen International Airport,NA,PA
+AMS,1608,102925,64,Amsterdam Airport Schiphol,EU,NL
+UIO,8635,94984,11,Mariscal Sucre International Airport,SA,EC
+PMI,708,94887,134,Palma De Mallorca Airport,ES,ES
+DXB,6699,93791,14,Dubai International Airport,AS,AE
+ZRH,1554,93241,60,ZÃ¼rich Airport,EU,CH
+ORY,1130,90423,80,Paris-Orly Airport,EU,FR
+CUN,9284,83556,9,CancÃºn International Airport,NA,MX
+PVG,13886,83316,6,Shanghai Pudong International Airport,AS,CN
+LIS,647,82201,127,Humberto Delgado Airport (Lisbon Portela Airport),EU,PT
+CCS,7417,81588,11,SimÃ³n BolÃ­var International Airport,SA,VE
+VVI,8109,81087,10,Viru Viru International Airport,SA,BO
+CDG,1167,74718,64,Charles de Gaulle International Airport,EU,FR
+LGW,1244,74651,60,London Gatwick Airport,EU,GB
+MDE,8281,74533,9,Jose Maria CÃ³rdova International Airport,SA,CO
+VCE,1855,74199,40,Venice Marco Polo Airport,EU,IT
+DFW,10387,72710,7,Dallas Fort Worth International Airport,NA,US
+SVO,4830,72449,15,Sheremetyevo International Airport,EU,RU
+VIE,2391,71724,30,Vienna International Airport,EU,AT
+GUA,9664,67649,7,La Aurora Airport,NA,GT
+TXL,2300,66706,29,Berlin-Tegel Airport,EU,DE
+DUS,1662,66466,40,DÃ¼sseldorf Airport,EU,DE
+ORD,9379,65650,7,Chicago O'Hare International Airport,NA,US
+NRT,15978,63913,4,Narita International Airport,AS,JP
+SJO,9057,63400,7,Juan Santamaria International Airport,NA,CR
+OTP,3326,63196,19,Henri CoandÄ International Airport,EU,RO
+MXP,1482,62224,42,Malpensa International Airport,EU,IT
+OPO,576,62166,108,Francisco de SÃ¡ Carneiro Airport,EU,PT
+LIN,1530,58154,38,Milano Linate Airport,EU,IT
+BLQ,1711,56479,33,Bologna Guglielmo Marconi Airport,EU,IT
+PHL,7970,55793,7,Philadelphia International Airport,NA,US
+IST,3601,54009,15,Istanbul Airport,AS,TR
+PEK,13360,53439,4,Beijing Capital International Airport,AS,CN
+GIG,7597,53178,7,Rio GaleÃ£o â Tom Jobim International Airport,SA,BR
+ATH,3071,52206,17,Eleftherios Venizelos International Airport,EU,GR
+PUJ,7391,51739,7,Punta Cana International Airport,NA,DO
+HKG,12919,51676,4,Hong Kong International Airport,AS,HK
+CLO,8409,50455,6,Alfonso Bonilla Aragon International Airport,SA,CO
+GVA,1252,50063,40,Geneva Cointrin International Airport,EU,CH
+ASU,8247,49480,6,Silvio Pettirossi International Airport,SA,PY
+AUH,6640,46481,7,Abu Dhabi International Airport,AS,AE
+ICN,14450,43350,3,Incheon International Airport,AS,KR
+BUD,2650,42392,16,Budapest Liszt Ferenc International Airport,EU,HU
+DUB,1466,41040,28,Dublin Airport,EU,IE
+STN,1337,40103,30,London Stansted Airport,EU,GB
+CIA,1803,39657,22,CiampinoâG. B. Pastine International Airport,EU,IT
+CPH,2460,39360,16,Copenhagen Kastrup Airport,EU,DK
+LAX,12749,38246,3,Los Angeles International Airport,NA,US
+ACE,1688,37131,22,Lanzarote Airport,ES,ES
+RAK,1099,36281,33,Menara Airport,AF,MA
+ATL,8996,35985,4,Hartsfield Jackson Atlanta International Airport,NA,US
+PRG,2248,35971,16,VÃ¡clav Havel Airport Prague,EU,CZ
+LCG,620,35965,58,A CoruÃ±a Airport,ES,ES
+KBP,3972,35749,9,Boryspil International Airport,EU,UA
+GYE,8789,35155,4,JosÃ© JoaquÃ­n de Olmedo International Airport,SA,EC
+VGO,596,35150,59,Vigo Airport,ES,ES
+LYS,1124,32609,29,Lyon Saint-ExupÃ©ry Airport,EU,FR
+CAI,4040,32318,8,Cairo International Airport,AF,EG
+NAP,1986,31772,16,Naples International Airport,EU,IT
+TFS,1984,31739,16,Tenerife South Airport,ES,ES
+CMN,905,31664,35,Mohammed V International Airport,AF,MA
+FUE,1747,31446,18,Fuerteventura Airport,ES,ES
+EWR,7851,31404,4,Newark Liberty International Airport,NA,US
+NCE,1250,31240,25,Nice-CÃ´te d'Azur Airport,EU,FR
+MRS,1031,30926,30,Marseille Provence Airport,EU,FR
+WAW,3011,30107,10,Warsaw Chopin Airport,EU,PL
+BGY,1584,30092,19,Il Caravaggio International Airport,EU,IT
+SCQ,602,28919,48,Santiago de Compostela Airport,ES,ES
+SJU,7154,28617,4,Luis Munoz Marin International Airport,NA,PR
+SVQ,426,27278,64,Sevilla Airport,ES,ES
+SOF,3009,27082,9,Sofia Airport,EU,BG
+DEL,9001,27002,3,Indira Gandhi International Airport,AS,IN
+HEL,3828,26795,7,Helsinki Vantaa Airport,EU,FI
+IBZ,577,26537,46,Ibiza Airport,ES,ES
+OVD,439,26352,60,Asturias Airport,ES,ES
+SZX,12913,25826,2,Shenzhen Bao'an International Airport,AS,CN
+JED,5126,25629,5,King Abdulaziz International Airport,AS,SA
+SAW,3655,25588,7,Sabiha GÃ¶kÃ§en International Airport,AS,TR
+YYZ,8460,25381,3,Lester B. Pearson International Airport,NA,CA
+HAM,2096,25155,12,Hamburg Airport,EU,DE
+XIY,12477,24953,2,Xi'an Xianyang International Airport,AS,CN
+TLS,651,24070,37,Toulouse-Blagnac Airport,EU,FR
+BIO,322,23531,73,Bilbao Airport,ES,ES
+BOS,7500,22501,3,General Edward Lawrence Logan International Airport,NA,US
+TRN,1353,21642,16,Turin Airport,EU,IT
+FLR,1683,20197,12,Peretola Airport,EU,IT
+NTE,773,20104,26,Nantes Atlantique Airport,EU,FR
+AGP,434,19957,46,MÃ¡laga Airport,ES,ES
+SSA,6630,19891,3,Deputado Luiz Eduardo MagalhÃ£es International Airport,SA,BR
+ARN,3182,19094,6,Stockholm-Arlanda Airport,EU,SE
+ALC,413,19011,46,Alicante International Airport,ES,ES
+SAP,9402,18804,2,RamÃ³n Villeda Morales International Airport,NA,HN
+VLC,360,17979,50,Valencia Airport,ES,ES
+AMM,4492,17966,4,Queen Alia International Airport,AS,JO
+FOR,5924,17772,3,Pinto Martins International Airport,SA,BR
+SSG,4293,17173,4,Malabo Airport,AF,GQ
+OSL,2724,16344,6,Oslo Gardermoen Airport,EU,NO
+MAN,1438,15814,11,Manchester Airport,EU,GB
+BOD,578,15037,26,Bordeaux-MÃ©rignac Airport,EU,FR
+LUX,1487,14873,10,Luxembourg-Findel International Airport,EU,LU
+EAS,376,14669,39,San Sebastian Airport,ES,ES
+SPC,2039,14271,7,La Palma Airport,ES,ES
+MAH,868,13886,16,Menorca Airport,ES,ES
+SXF,2310,13860,6,Berlin-SchÃ¶nefeld Airport,EU,DE
+DWC,6685,13370,2,Al Maktoum International Airport,AS,AE
+CGN,1658,13261,8,Cologne Bonn Airport,EU,DE
+BEY,4397,13192,3,Beirut Rafic Hariri International Airport,AS,LB
+XRY,498,12939,26,Jerez Airport,ES,ES
+CLJ,3106,12425,4,Cluj-Napoca International Airport,EU,RO
+REC,6091,12182,2,Guararapes - Gilberto Freyre International Airport,SA,BR
+LEI,424,11876,28,AlmerÃ­a International Airport,ES,ES
+ALG,863,11218,13,Houari Boumediene Airport,AF,DZ
+KRK,2800,11201,4,KrakÃ³w John Paul II International Airport,EU,PL
+PSA,1592,11144,7,Pisa International Airport,EU,IT
+MLA,2069,10347,5,Malta International Airport,EU,MT
+GRX,365,10223,28,Federico Garcia Lorca Airport,ES,ES
+MLN,580,9866,17,Melilla Airport,ES,ES
+TNG,587,9398,16,Ibn Batouta Airport,AF,MA
+PNA,333,9310,28,Pamplona Airport,ES,ES
+SXB,1533,9197,6,Strasbourg Airport,EU,FR
+WMI,2993,8978,3,Modlin Airport,EU,PL
+EDI,1718,8590,5,Edinburgh Airport,EU,GB
+TSR,2829,8488,3,TimiÅoara Traian Vuia Airport,EU,RO
+CBB,8258,8258,1,Jorge Wilsterman International Airport,SA,BO
+IGR,8169,8169,1,Cataratas Del IguazÃº International Airport,SA,AR
+SCU,8140,8140,1,Antonio Maceo International Airport,NA,CU
+BEG,2696,8089,3,Belgrade Nikola Tesla Airport,EU,RS
+BHX,1346,8076,6,Birmingham International Airport,EU,GB
+TUN,1585,7925,5,Tunis Carthage International Airport,AF,TN
+SDR,329,7900,24,Santander Airport,ES,ES
+YUL,7811,7811,1,Montreal / Pierre Elliott Trudeau International Airport,NA,CA
+CRL,1423,7116,5,Brussels South Charleroi Airport,EU,BE
+BVA,1181,7086,6,Paris Beauvais TillÃ© Airport,EU,FR
+RIX,3542,7084,2,Riga International Airport,EU,LV
+ZAG,2259,6776,3,Zagreb Airport,EU,HR
+STR,1688,6753,4,Stuttgart Airport,EU,DE
+RBA,794,6356,8,Rabat-SalÃ© Airport,AF,MA
+SBZ,3128,6257,2,Sibiu International Airport,EU,RO
+CRA,3081,6161,2,Craiova Airport,EU,RO
+BRS,1215,6075,5,Bristol Airport,EU,GB
+BJZ,402,5634,14,Badajoz Airport,ES,ES
+EIN,1573,4719,3,Eindhoven Airport,EU,NL
+BRI,2261,4522,2,Bari Karol WojtyÅa Airport,EU,IT
+ASW,4403,4403,1,Aswan International Airport,AF,EG
+BSL,1465,4394,3,EuroAirport Basel-Mulhouse-Freiburg Airport,EU,FR
+LXR,4324,4324,1,Luxor International Airport,AF,EG
+LPL,1430,4290,3,Liverpool John Lennon Airport,EU,GB
+CTA,2098,4195,2,Catania-Fontanarossa Airport,EU,IT
+LTN,1316,3948,3,London Luton Airport,EU,GB
+PMO,1869,3738,2,FalconeâBorsellino Airport,EU,IT
+ISL,3601,3601,1,AtatÃ¼rk International Airport,AS,TR
+LWO,3223,3223,1,Lviv International Airport,EU,UA
+CAG,1409,2819,2,Cagliari Elmas Airport,EU,IT
+XCR,1264,2527,2,ChÃ¢lons-Vatry Airport,EU,FR
+RNS,868,1736,2,Rennes-Saint-Jacques Airport,EU,FR
+LGG,1509,1509,1,LiÃ¨ge Airport,EU,BE
+FEZ,743,1485,2,SaÃ¯ss Airport,AF,MA
+ORN,630,1260,2,Es Senia Airport,AF,DZ
+RJL,260,781,3,LogroÃ±o-Agoncillo Airport,ES,ES
+DOH,NaN,NaN,1,Hamad International Airport,AS,QA
+ZAZ,310,310,1,Zaragoza Air Base,ES,ES
+VLL,198,198,1,Valladolid Airport,ES,ES
