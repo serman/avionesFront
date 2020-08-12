@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="intro-section">
+    <div id="intro-section" style="display:none">
       <flight-fast v-if="showPaths" />
       <clouds v-if="showClouds"/>
       
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="container text-container " id="graphs1">
-      <div class="text-column">
+      <div class="text-column" style="display:none">
         El impacto de la aviación en las emisiones de CO2 ha ido cobrando mayor importancia en los últimos años y supone el XX de emisiones a nivel mundial pero en constante crecimiento
 
         La aviación se considera irremplazable para las distancias largas.
