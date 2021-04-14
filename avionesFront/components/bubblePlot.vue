@@ -1,7 +1,8 @@
 <template>
   <div id="canvas_container">
-    <a class="button is-primary" v-on:click="highlightOne"> highlight </a>
-    <a class="button is-primary" v-on:click="stopHighlight"> stop highlight </a>
+   <!-- <a class="button is-primary" v-on:click="highlightOne"> highlight </a>
+    <a class="button is-primary" v-on:click="stopHighlight"> stop highlight </a> 
+    -->
     <div id="tooltip" :style="{'opacity':tooltip.opacity, 'left':tooltip.left, 'top':tooltip.top}" v-if="tooltip.element"> 
       Aeropuerto: {{tooltip.element.nombre}}<br/>
       País: {{tooltip.element.pais}}<br/>
@@ -20,7 +21,7 @@ import * as d3zoom from "d3-zoom";
 import * as d3brush from "d3-brush";
 import { slugify } from "@/assets/libs/slugify.js";
 // set the dimensions and margins of the graph
-var margin = { top: 40, right: 150, bottom: 60, left: 30 },
+var margin = { top: 20, right: 150, bottom: 60, left: 40 },
   width = 900 - margin.left - margin.right,
   height = 600 - margin.top - margin.bottom;
 var z = d3
@@ -51,6 +52,7 @@ var y = d3
   
 let xAxis, yAxis=null
 var dotcontainer
+let selectedHighlightFixedElement=''
 // Add brushing
 
 var svg;
@@ -67,6 +69,20 @@ export default {
     highlightAirport: { // sync property
       type:String,
       default: ''
+    },
+    resetZoom:{
+      type: Boolean,
+      default:true
+    }
+  },
+  computed: {
+    modeText() {
+      if(this.mode == 'total_km')
+        return 'Total de Km recorridos'
+      if(this.mode==='tonFuelTotales')
+        return 'Toneladas de combustible quemadas'
+      if(this.mode==='distance')
+        return 'Distancia a Madrid'
     }
   },
   watch: {
@@ -75,6 +91,20 @@ export default {
     },
     mode(newValue, oldValue) {
       this.updatePlot();
+    },
+    resetZoom(newValue, oldValue) {
+
+          x.domain([0, d3.max(this.plotDataOriginal, d => d[this.mode])]);
+          y.domain([0, 180])
+       
+         // Update axis and circle position
+        d3.select('g.xaxis').transition().duration(1000).call(d3.axisBottom(x))
+        d3.select('g.yaxis').transition().duration(1000).call(d3.axisLeft(y))
+        svg
+          .selectAll("circle.bubbles")
+          .transition().duration(1000)
+          .attr("cx",  (d)=> { return x(d[this.mode]) } )
+          .attr("cy",  (d)=>{ return  y(d.count) } )
     },
     highlightAirport(newValue,oldValue){
       console.log('detectado hightlihgt')
@@ -119,11 +149,15 @@ export default {
       // Add Y axis label:
       svg
         .append("text")
-        .attr("text-anchor", "end")
-        .attr("x", 0)
-        .attr("y", -20)
-        .text("Numero de vuelos")
-        .attr("text-anchor", "start");
+        .attr("text-anchor", "start")
+        .attr("x", -height/2)
+        .attr("y", -29)
+        .text("Número de vuelos")
+        .attr("text-anchor", "middle")
+        .style('font-size','15px')
+        .attr("transform", function(d) {
+                return "rotate(-90)" 
+                });
 
       // add the X gridlines
       svg
@@ -156,6 +190,48 @@ export default {
         return d3.axisLeft(y).ticks(10);
       }
 
+      // ---------------------------//
+      //       ZOOM & BRUSH BLOCK    //
+      // ---------------------------//
+
+      var brush = d3brush.brush() // Add the brush feature using the d3.brush function
+      .extent( [ [0,0], [width,height] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+      .on("end", updateChartBrush.bind(this)) 
+      
+      svg.append("g")
+      .attr("class", "brush")
+      .call(brush);
+      var idleTimeout
+      function idled() { idleTimeout = null; }
+
+      function updateChartBrush(_extent) {
+        let extent
+        if(_extent === undefined)
+          extent = d3.event.selection
+        else{
+           extent==null
+        }
+        // If no selection, back to initial coordinate. Otherwise, update X Y axis domain
+        if(!extent){
+          if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
+          x.domain([0, d3.max(this.plotDataOriginal, d => d[this.mode])]);
+          y.domain([0, 180])
+        }else{
+          x.domain([ x.invert(extent[0][0]), x.invert(extent[1][0]) ])
+          y.domain([ y.invert(extent[1][1]), y.invert(extent[0][1]) ])
+          svg.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+        }
+         // Update axis and circle position
+        xAxis.transition().duration(1000).call(d3.axisBottom(x))
+        yAxis.transition().duration(1000).call(d3.axisLeft(y))
+        svg
+          .selectAll("circle.bubbles")
+          .transition().duration(1000)
+          .attr("cx",  (d)=> { return x(d[this.mode]) } )
+          .attr("cy",  (d)=>{ return  y(d.count) } )
+      }
+
+// END OF ZOOM&BRUSH
 
       // ---------------------------//
       //       HIGHLIGHT GROUP      //
@@ -173,6 +249,37 @@ export default {
       var noHighlight = function(d) {
         d3.selectAll(".bubbles").style("opacity", 1);
       };
+
+      var highlightFixed = (d)=>{
+        if(selectedHighlightFixedElement===d){
+          resetHighlightFixed()
+          return
+        }
+        selectedHighlightFixedElement=d
+        d3.selectAll(".legend-circle-continent")
+          .classed('low-opacity',false)
+        d3.selectAll(".legend-circle-continent:not(.legend-circle-continent-"+d+')')
+          .classed('low-opacity',true)
+        
+         d3.selectAll(".bubbles")
+         .classed("nonHighlightFixed", false);
+        // expect the one that is hovered
+        d3.selectAll(".bubbles:not(." + d+")")
+         .classed("nonHighlightFixed", true);
+      }
+
+      var resetHighlightFixed=()=>{
+        d3.selectAll(".legend-circle-continent")
+          .classed('low-opacity',false)
+        d3.selectAll(".bubbles")
+         .classed("nonHighlightFixed", false);
+
+        selectedHighlightFixedElement=''
+      }
+      
+      // ---------------------------//
+      //       LEGEND     //
+      // ---------------------------//
 
       // Add legend: circles
       var valuesToShow = [1000, 5000, 10000];
@@ -240,7 +347,6 @@ export default {
       var size = 20;
       var allgroups = ["AS", "EU", "NA", "AF", "SA", "ES"];
 
-
       svg
         .selectAll("myrect")
         .data(allgroups)
@@ -254,46 +360,12 @@ export default {
         .style("fill", function(d) {
           return myColor(d);
         })
+        .attr( 'class', d=>{return 'legend-circle-continent-'+d})
+        .classed('legend-circle-continent',true)
         .on("mouseover", highlight)
-        .on("mouseleave", noHighlight);
+        .on("mouseleave", noHighlight)
+        .on("click", highlightFixed)
 
-///// ZOOM & BRUSH BLOCK
-      var brush = d3brush.brush() // Add the brush feature using the d3.brush function
-      .extent( [ [0,0], [width,height] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-      .on("end", updateChartBrush.bind(this)) 
-      
-      svg.append("g")
-      .attr("class", "brush")
-      .call(brush);
-      var idleTimeout
-      function idled() { idleTimeout = null; }
-
-      function updateChartBrush() {
-        let extent = d3.event.selection
-        console.log(extent)
-        // If no selection, back to initial coordinate. Otherwise, update X Y axis domain
-        if(!extent){
-          if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
-          x.domain([0, d3.max(this.plotDataOriginal, d => d[this.mode])]);
-          y.domain([0, 180])
-        }else{
-          x.domain([ x.invert(extent[0][0]), x.invert(extent[1][0]) ])
-          y.domain([ y.invert(extent[1][1]), y.invert(extent[0][1]) ])
-          svg.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
-        }
-         // Update axis and circle position
-        xAxis.transition().duration(1000).call(d3.axisBottom(x))
-        yAxis.transition().duration(1000).call(d3.axisLeft(y))
-        svg
-          .selectAll("circle.bubbles")
-          .transition().duration(1000)
-          .attr("cx",  (d)=> { return x(d[this.mode]) } )
-          .attr("cy",  (d)=>{ return  y(d.count) } )
-      }
-
-// END OF ZOOM&BRUSH
-
-    ///////////////////////ñññññññññññññññññññññññññññññ
       // Add labels beside legend dots
       svg
         .selectAll("mylabels")
@@ -337,7 +409,7 @@ export default {
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height + 50)
-        .text(this.mode)
+        .text(this.modeText)
         .classed('xaxis',true)      
          
       // ---------------------------//
@@ -381,7 +453,6 @@ export default {
     highlightOne(name) {
       d3.selectAll(".bubbles").style("opacity", 0.25);
       // expect the one that is hovered
-      console.log(name)
       d3.select(name)
         .style("opacity", 1)
         .classed("blink", true);
@@ -426,6 +497,16 @@ export default {
 }
 .bubbles:hover {
   stroke: black;
+}
+.bubbles.nonHighlightFixed{
+  opacity:0.05!important;
+  pointer-events: none;
+}
+.legend-circle-continent{
+  cursor: pointer;
+}
+.low-opacity{
+  opacity: 0.2;
 }
 .tooltip {
   position: absolute;

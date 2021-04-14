@@ -52,14 +52,27 @@ export default {
       mouseX: 0,
       mouseY: 0,
 			scene: null,
-			animationId: undefined
+      animationId: undefined,
+      //animationStop: false
     };
+  },
+  props: {
+    animationStop: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    animationStop(newValue, oldValue) {
+      console.log('change animation stop')
+      if(newValue==false) this.animate()
+    }
   },
   mounted() {
     this.init();
 	},
 	destroyed(){
-		 document.addEventListener("mousemove", this.onDocumentMouseMove);
+		document.addEventListener("mousemove", this.onDocumentMouseMove);
 		window.addEventListener( 'resize', this.onWindowResize );
 		if(this.animationId) {
           window.cancelAnimationFrame(this.animationId);
@@ -161,13 +174,18 @@ export default {
       window.addEventListener( 'resize', this.onWindowResize, false );
     },
     animate() {
-      this.animationId=requestAnimationFrame(this.animate);
-      let position = ((Date.now() - this.start_time) * 0.03) % 8000;
-      this.camera.position.x += (this.mouseX - this.camera.position.x) * 0.01;
-      this.camera.position.y += (-this.mouseY - this.camera.position.y) * 0.01;
-      this.camera.position.z = -position + 8000;
+      if(this.animationStop==false){
+        this.animationId=requestAnimationFrame(this.animate);
+        let position = ((Date.now() - this.start_time) * 0.03) % 8000;
+        this.camera.position.x += (this.mouseX - this.camera.position.x) * 0.01;
+        this.camera.position.y += (-this.mouseY - this.camera.position.y) * 0.01;
+        this.camera.position.z = -position + 8000;
 
-      this.renderer.render(this.scene, this.camera);
+        this.renderer.render(this.scene, this.camera);
+      }
+      else{
+        cancelAnimationFrame(this.animationId);
+      }
     },
     onDocumentMouseMove() {
       this.mouseX = (event.clientX - window.innerWidth / 2) * 0.25;

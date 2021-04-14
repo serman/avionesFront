@@ -4,6 +4,9 @@ export default {
   /*
   ** Headers of the page
   */
+  router: {
+    base: '/demoaviones/'
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -22,8 +25,7 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ["@/assets/scss/main.scss"],
   /*
   ** Plugins to load before mounting the App
   */
